@@ -1,0 +1,64 @@
+{
+  "Header": {
+    "Icon": "🔐",
+    "Title": "CipherForge",
+    "Subtitle": "Generate Secure, Random Passwords Instantly"
+  },
+  "PasswordDisplay": {
+    "Placeholder": "Click Generate To Create A Password",
+    "CopyTitle": "Copy Password",
+    "RegenerateTitle": "Regenerate",
+    "CopiedIcon": "✓",
+    "CopyIcon": "📋",
+    "RegenerateIcon": "↻"
+  },
+  "Controls": {
+    "LengthLabel": "Password Length",
+    "MinLength": 6,
+    "MaxLength": 128,
+    "DefaultLength": 16
+  },
+  "CharTypes": [
+    { "Key": "include_uppercase", "Label": "Uppercase", "Example": "A-Z" },
+    { "Key": "include_lowercase", "Label": "Lowercase", "Example": "a-z" },
+    { "Key": "include_digits", "Label": "Numbers", "Example": "0-9" },
+    { "Key": "include_special", "Label": "Special", "Example": "!@#$" }
+  ],
+  "GenerateButton": {
+    "Label": "Generate Password",
+    "LoadingLabel": "Generating..."
+  },
+  "ShortcutHint": {
+    "Prefix": "Press",
+    "Key1": "Ctrl",
+    "Key2": "G",
+    "Separator": "+",
+    "Suffix": "To Generate"
+  },
+  "History": {
+    "Title": "🕐 Recent Passwords",
+    "ShowLabel": "▼ Show",
+    "HideLabel": "▲ Hide",
+    "CopyTitle": "Copy",
+    "CopyIcon": "📋",
+    "ClearLabel": "Clear History"
+  },
+  "Footer": {
+    "Text": "CipherForge — Built With React + FastAPI"
+  },
+  "Toast": {
+    "CopiedMessage": "Copied To Clipboard!",
+    "CopyFailedMessage": "Failed To Copy",
+    "ConnectionErrorMessage": "Could Not Connect To Server"
+  },
+  "Alert": {
+    "ErrorTitle": "Something Went Wrong",
+    "ConnectionError": "Unable To Connect To The Server. Please Make Sure The Backend Is Running.",
+    "GenerationError": "An Error Occurred While Generating The Password. Please Try Again.",
+    "DismissLabel": "✕"
+  },
+  "Api": {
+    "GeneratePasswordError": "Failed To Generate Password",
+    "GenerateBulkPasswordError": "Failed To Generate Passwords"
+  }
+}
