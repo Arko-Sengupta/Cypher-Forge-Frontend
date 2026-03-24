@@ -1,16 +1,12 @@
 {
   "Header": {
-    "Icon": "🔐",
     "Title": "CipherForge",
     "Subtitle": "Generate Secure, Random Passwords Instantly"
   },
   "PasswordDisplay": {
     "Placeholder": "Click Generate To Create A Password",
     "CopyTitle": "Copy Password",
-    "RegenerateTitle": "Regenerate",
-    "CopiedIcon": "✓",
-    "CopyIcon": "📋",
-    "RegenerateIcon": "↻"
+    "RegenerateTitle": "Regenerate"
   },
   "Controls": {
     "LengthLabel": "Password Length",
@@ -36,11 +32,10 @@
     "Suffix": "To Generate"
   },
   "History": {
-    "Title": "🕐 Recent Passwords",
-    "ShowLabel": "▼ Show",
-    "HideLabel": "▲ Hide",
+    "Title": "Recent Passwords",
+    "ShowLabel": "Show",
+    "HideLabel": "Hide",
     "CopyTitle": "Copy",
-    "CopyIcon": "📋",
     "ClearLabel": "Clear History"
   },
   "Footer": {
@@ -54,8 +49,7 @@
   "Alert": {
     "ErrorTitle": "Something Went Wrong",
     "ConnectionError": "Unable To Connect To The Server. Please Make Sure The Backend Is Running.",
-    "GenerationError": "An Error Occurred While Generating The Password. Please Try Again.",
-    "DismissLabel": "✕"
+    "GenerationError": "An Error Occurred While Generating The Password. Please Try Again."
   },
   "Api": {
     "GeneratePasswordError": "Failed To Generate Password",

@@ -1,6 +1,18 @@
 import { useState, useEffect, useCallback } from 'react'
 import { GeneratePasswordApi } from './Routes/Api'
 import StaticData from './Data/StaticData.json'
+import {
+  Shield,
+  Copy,
+  Check,
+  RefreshCw,
+  Clock,
+  ChevronDown,
+  ChevronUp,
+  X,
+  AlertTriangle,
+  Zap,
+} from 'lucide-react'
 
 const App = () => {
   const [password, setPassword] = useState('')
@@ -90,7 +102,7 @@ const App = () => {
 
   const MaskPassword = (pwd) => {
     if (pwd.length <= 6) return pwd
-    return pwd.slice(0, 3) + '•'.repeat(pwd.length - 6) + pwd.slice(-3)
+    return pwd.slice(0, 3) + '\u2022'.repeat(pwd.length - 6) + pwd.slice(-3)
   }
 
   const strengthClass = strength.toLowerCase().replace(' ', '-')
@@ -98,19 +110,22 @@ const App = () => {
   return (
     <div className="app">
       <header className="header">
-        <span className="icon" role="img" aria-label="lock">{StaticData.Header.Icon}</span>
+        <div className="icon">
+          <Shield size={28} strokeWidth={1.8} />
+        </div>
         <h1>{StaticData.Header.Title}</h1>
         <p>{StaticData.Header.Subtitle}</p>
       </header>
 
       {alert && (
         <div className="alert alert-error">
+          <AlertTriangle size={18} strokeWidth={2} className="alert-icon" />
           <div className="alert-content">
             <span className="alert-title">{alert.title}</span>
             <span className="alert-message">{alert.message}</span>
           </div>
           <button className="alert-dismiss" onClick={DismissAlert}>
-            {StaticData.Alert.DismissLabel}
+            <X size={16} strokeWidth={2} />
           </button>
         </div>
       )}
@@ -127,7 +142,7 @@ const App = () => {
               title={StaticData.PasswordDisplay.CopyTitle}
               disabled={!password}
             >
-              {copied ? StaticData.PasswordDisplay.CopiedIcon : StaticData.PasswordDisplay.CopyIcon}
+              {copied ? <Check size={16} strokeWidth={2.5} /> : <Copy size={16} strokeWidth={2} />}
             </button>
             <button
               className="action-btn"
@@ -135,7 +150,7 @@ const App = () => {
               title={StaticData.PasswordDisplay.RegenerateTitle}
               disabled={loading}
             >
-              {StaticData.PasswordDisplay.RegenerateIcon}
+              <RefreshCw size={16} strokeWidth={2} className={loading ? 'icon-spin' : ''} />
             </button>
           </div>
         </div>
@@ -197,7 +212,10 @@ const App = () => {
             {StaticData.GenerateButton.LoadingLabel}
           </span>
         ) : (
-          StaticData.GenerateButton.Label
+          <span className="generate-btn-content">
+            <Zap size={18} strokeWidth={2} />
+            {StaticData.GenerateButton.Label}
+          </span>
         )}
       </button>
       <div className="shortcut-hint">
@@ -210,9 +228,16 @@ const App = () => {
             className="history-header"
             onClick={() => setHistoryOpen((p) => !p)}
           >
-            <h3>{StaticData.History.Title}</h3>
+            <h3>
+              <Clock size={15} strokeWidth={2} className="history-icon" />
+              {StaticData.History.Title}
+            </h3>
             <span className="history-toggle">
-              {historyOpen ? StaticData.History.HideLabel : StaticData.History.ShowLabel}
+              {historyOpen ? (
+                <><ChevronUp size={14} strokeWidth={2} /> {StaticData.History.HideLabel}</>
+              ) : (
+                <><ChevronDown size={14} strokeWidth={2} /> {StaticData.History.ShowLabel}</>
+              )}
             </span>
           </div>
           {historyOpen && (
@@ -233,7 +258,7 @@ const App = () => {
                       onClick={() => CopyToClipboard(item.password)}
                       title={StaticData.History.CopyTitle}
                     >
-                      {StaticData.History.CopyIcon}
+                      <Copy size={14} strokeWidth={2} />
                     </button>
                   </div>
                 ))}
@@ -256,7 +281,12 @@ const App = () => {
         {StaticData.Footer.Text}
       </footer>
 
-      {toast && <div className="toast">{toast}</div>}
+      {toast && (
+        <div className="toast">
+          <Check size={16} strokeWidth={2.5} className="toast-icon" />
+          {toast}
+        </div>
+      )}
     </div>
   )
 }
