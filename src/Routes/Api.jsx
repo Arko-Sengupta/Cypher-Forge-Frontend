@@ -1,7 +1,6 @@
 import StaticData from '../Data/StaticData.json'
 
 const API_BASE = import.meta.env.VITE_API_BASE || '/api'
-
 const SafeParseJson = async (res) => {
   try {
     return await res.json()
